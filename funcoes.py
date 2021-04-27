@@ -133,7 +133,7 @@ def empilha(baralho, i, i_novo):
     del(baralho[i])
     return baralho
 
-def possui_movimentos_possiveis(baralho):
+def possui_movimentos_possiveis(movimentos):
     if movimentos != []:
         return True
     else:
