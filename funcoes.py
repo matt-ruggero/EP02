@@ -128,13 +128,24 @@ def lista_movimentos_possiveis(baralho, i):
             movimentos.append(3)
     return movimentos
 
-def empilha(baralho, i, i_novo):
-    baralho[i_novo] = baralho[i]
+def empilha(baralho, i, i_n):
+    baralho[i_n] = baralho[i]
     del(baralho[i])
     return baralho
 
 def possui_movimentos_possiveis(movimentos):
     if movimentos != []:
+        return True
+    else:
+        return False
+
+def fim_do_jogo(baralho):
+    movimentos_possiveis = []
+    for i in range(1, len(baralho)):
+        movimentos = lista_movimentos_possiveis(baralho, i)
+        if len(movimentos) > 0:
+            movimentos_possiveis.append(1)
+    if movimentos_possiveis == []:
         return True
     else:
         return False
