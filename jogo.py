@@ -22,6 +22,6 @@ while jogar:
             print('Você perdeu, melhor sorte na próxima.')
             jogar = False
             break
-    i = int(input('Escolha uma carta: ')) - 1
+    i = int(input('Escolha uma carta: '))
     movimentos = funcoes.lista_movimentos_possiveis(baralho, i)
     poder = funcoes.possui_movimentos_possiveis(movimentos)
