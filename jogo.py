@@ -26,7 +26,7 @@ while jogar:
     movimentos = funcoes.lista_movimentos_possiveis(baralho, i)
     poder = funcoes.possui_movimentos_possiveis(movimentos)
     if poder:
-        if 1 and 3 in movimentos:
+        if 1 in movimentos and 3 in movimentos:
             print('1.{0}'.format(baralho[i-1]))
             print('2.{0}'.format(baralho[i-3]))
             carta_escolhida = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[i])))
