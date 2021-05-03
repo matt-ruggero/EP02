@@ -23,32 +23,35 @@ while jogar:
             jogar = False
             break
     i = int(input('Escolha uma carta: '))
-    movimentos = funcoes.lista_movimentos_possiveis(baralho, i)
-    poder = funcoes.possui_movimentos_possiveis(movimentos)
-    if poder:
-        if 1 in movimentos and 3 in movimentos:
-            print('1.{0}'.format(baralho[i-1]))
-            print('2.{0}'.format(baralho[i-3]))
-            carta_escolhida = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[i])))
-            if carta_escolhida == 1:
+    if i >= len(baralho):
+        print('Essa carta está fora dos limites do baralho atual')
+    else:
+        movimentos = funcoes.lista_movimentos_possiveis(baralho, i)
+        poder = funcoes.possui_movimentos_possiveis(movimentos)
+        if poder:
+            if 1 in movimentos and 3 in movimentos:
+                print('1.{0}'.format(baralho[i-1]))
+                print('2.{0}'.format(baralho[i-3]))
+                carta_escolhida = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[i])))
+                if carta_escolhida == 1:
+                    i_novo = i-1
+                    baralho = funcoes.empilha(baralho, i, i_novo)
+                    print(baralho)
+                    poder = False
+                else:
+                    i_novo = i-3
+                    baralho = funcoes.empilha(baralho, i, i_novo)
+                    print(baralho)
+                    poder = False
+            elif 1 in movimentos:
                 i_novo = i-1
                 baralho = funcoes.empilha(baralho, i, i_novo)
                 print(baralho)
                 poder = False
-            else:
+            elif 3 in movimentos:
                 i_novo = i-3
                 baralho = funcoes.empilha(baralho, i, i_novo)
                 print(baralho)
                 poder = False
-        elif 1 in movimentos:
-            i_novo = i-1
-            baralho = funcoes.empilha(baralho, i, i_novo)
-            print(baralho)
-            poder = False
-        elif 3 in movimentos:
-            i_novo = i-3
-            baralho = funcoes.empilha(baralho, i, i_novo)
-            print(baralho)
-            poder = False
-    else:
-        print('Essa não dá')
+        else:
+            print('Essa não dá')
