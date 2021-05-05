@@ -3,7 +3,7 @@ inicio = input('Você deseja jogar? (s/n) ')
 if inicio == 's':
     jogar = True
     baralho = funcoes.cria_baralho()
-    print(baralho)
+    print(funcoes.cartas_em_lista(baralho))
 else:
     print('Não vai jogar')
     jogar = False
@@ -12,7 +12,7 @@ while jogar:
     final = False
     while not final:
         final = funcoes.fim_do_jogo(baralho)
-        i = int(input('Escolha uma carta: '))
+        i = int(input('Escolha uma carta: ')) - 1
         if i >= len(baralho):
             print('Essa carta está fora dos limites do baralho atual')
         else:
@@ -26,25 +26,25 @@ while jogar:
                     if carta_escolhida == 1:
                         i_novo = i-1
                         baralho = funcoes.empilha(baralho, i, i_novo)
-                        print(baralho)
+                        print(funcoes.cartas_em_lista(baralho))
                         poder = False
                         final = funcoes.fim_do_jogo(baralho)
                     else:
                         i_novo = i-3
                         baralho = funcoes.empilha(baralho, i, i_novo)
-                        print(baralho)
+                        print(funcoes.cartas_em_lista(baralho))
                         poder = False
                         final = funcoes.fim_do_jogo(baralho)
                 elif 1 in movimentos:
                     i_novo = i-1
                     baralho = funcoes.empilha(baralho, i, i_novo)
-                    print(baralho)
+                    print(funcoes.cartas_em_lista(baralho))
                     poder = False
                     final = funcoes.fim_do_jogo(baralho)
                 elif 3 in movimentos:
                     i_novo = i-3
                     baralho = funcoes.empilha(baralho, i, i_novo)
-                    print(baralho)
+                    print(funcoes.cartas_em_lista(baralho))
                     poder = False
                     final = funcoes.fim_do_jogo(baralho)
             else:
@@ -59,7 +59,7 @@ while jogar:
             if jogar_de_novo == 's':
                 jogar = True
                 baralho = funcoes.cria_baralho()
-                print(baralho)
+                print(funcoes.cartas_em_lista(baralho))
             else:
                 jogar = False
     else:
@@ -68,6 +68,6 @@ while jogar:
             if jogar_de_novo == 's':
                 jogar = True
                 baralho = funcoes.cria_baralho()
-                print(baralho)
+                print(funcoes.cartas_em_lista(baralho))
             else:
                 jogar = False
