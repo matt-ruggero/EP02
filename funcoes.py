@@ -149,3 +149,11 @@ def fim_do_jogo(baralho):
         return True
     else:
         return False
+
+def cartas_em_lista(baralho):
+    lista_cartas = ''
+    w = 0
+    for i in range(1, len(baralho)+1):
+        lista_cartas += ('{0}. {1}\n'.format(i, baralho[w]))
+        w += 1
+    return lista_cartas
