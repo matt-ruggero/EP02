@@ -154,6 +154,28 @@ def cartas_em_lista(baralho):
     lista_cartas = ''
     w = 0
     for i in range(1, len(baralho)+1):
-        lista_cartas += ('{0}. {1}\n'.format(i, baralho[w]))
+        carta_colorida = cores(baralho[w])
+        lista_cartas += ('{0}. {1}\n'.format(i, carta_colorida))
         w += 1
     return lista_cartas
+
+class bcolors:
+ purple = '\033[95m'
+ blue = '\033[94m'
+ green = '\033[92m'
+ yellow = '\033[93m'
+ red = '\033[91m'
+ end = '\033[0m'
+
+def cores(n):
+    x = str(extrai_naipe(n))
+    if x == '♠':
+        return bcolors.blue + n + bcolors.end
+    if x == '♥':
+        return bcolors.red + n + bcolors.end
+    if x == '♣':
+        return bcolors.purple + n + bcolors.end
+    if x == '♦':
+        return bcolors.yellow + n + bcolors.end
+    else:
+        return x
