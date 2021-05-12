@@ -20,9 +20,9 @@ while jogar:
             poder = funcoes.possui_movimentos_possiveis(movimentos)
             if poder:
                 if 1 in movimentos and 3 in movimentos:
-                    print('1.{0}'.format(baralho[i-1]))
-                    print('2.{0}'.format(baralho[i-3]))
-                    carta_escolhida = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[i])))
+                    print('1.{0}'.format(funcoes.cores(baralho[i-1])))
+                    print('2.{0}'.format(funcoes.cores(baralho[i-3])))
+                    carta_escolhida = int(input('Sobre qual carta você quer empilhar o {0}?'.format(funcoes.cores(baralho[i]))))
                     if carta_escolhida == 1:
                         i_novo = i-1
                         baralho = funcoes.empilha(baralho, i, i_novo)
